@@ -1,28 +1,28 @@
 use StuDB
 go
 
- --ÈÎÎñÒ»
--- Ìí¼Ó±í×Ö¶Î
-alter table dbo.½ÌÊ¦ĞÅÏ¢ add phone_number char(11);
--- Ìí¼Ó±í×Ö¶Î²¢Îª×Ö¶ÎÌí¼ÓÔ¼Êø
-alter table dbo.½ÌÊ¦ĞÅÏ¢ add annual_salary decimal(7,2) check (annual_salary<1000000.00);
--- ĞŞ¸Ä±í×Ö¶Î
-alter table dbo.½ÌÊ¦ĞÅÏ¢ alter column ĞÔ±ğ bit;
--- Ô¼Êø×Ö¶Î²»µÃÎª¿Õ
-alter table dbo.½ÌÊ¦ĞÅÏ¢ alter column ĞÕÃû nchar(5) not null;
----- ÉèÖÃ×Ö¶ÎÎªÖ÷¼ü
-alter table dbo.¿Î³ÌĞÅÏ¢ add constraint ¿Î³ÌºÅ primary key(¿Î³ÌºÅ);¡¢
-alter table dbo.Ñ§ÉúĞÅÏ¢ add  constraint Ñ§ºÅ primary key(Ñ§ºÅ);
-alter table dbo.Ñ§Éú³É¼¨ add constraint Ñ§ºÅ¿Î³ÌºÅ primary key(Ñ§ºÅ,¿Î³ÌºÅ);
+ --ä»»åŠ¡ä¸€
+-- æ·»åŠ è¡¨å­—æ®µ
+alter table dbo.æ•™å¸ˆä¿¡æ¯ add phone_number char(11);
+-- æ·»åŠ è¡¨å­—æ®µå¹¶ä¸ºå­—æ®µæ·»åŠ çº¦æŸ
+alter table dbo.æ•™å¸ˆä¿¡æ¯ add annual_salary decimal(7,2) check (annual_salary<1000000.00);
+-- ä¿®æ”¹è¡¨å­—æ®µ
+alter table dbo.æ•™å¸ˆä¿¡æ¯ alter column æ€§åˆ« bit;
+-- çº¦æŸå­—æ®µä¸å¾—ä¸ºç©º
+alter table dbo.æ•™å¸ˆä¿¡æ¯ alter column å§“å nchar(5) not null;
+---- è®¾ç½®å­—æ®µä¸ºä¸»é”®
+alter table dbo.è¯¾ç¨‹ä¿¡æ¯ add constraint è¯¾ç¨‹å· primary key(è¯¾ç¨‹å·);ã€
+alter table dbo.å­¦ç”Ÿä¿¡æ¯ add  constraint å­¦å· primary key(å­¦å·);
+alter table dbo.å­¦ç”Ÿæˆç»© add constraint å­¦å·è¯¾ç¨‹å· primary key(å­¦å·,è¯¾ç¨‹å·);
 
 
-alter table dbo.¿Î³ÌĞÅÏ¢ add constraint ¿Î³ÌÃû unique(¿Î³ÌÃû);
+alter table dbo.è¯¾ç¨‹ä¿¡æ¯ add constraint è¯¾ç¨‹å unique(è¯¾ç¨‹å);
 
- --¸ø±í×Ö¶ÎÌí¼ÓÄ¬ÈÏÖµ
---¸øÄ³¸ö×Ö¶ÎÉèÖÃÔ¼Êø²¢ÉèÖÃÄ¬ÈÏÖµµÄÊ±ºò£¬ĞèÒªÏÈ½«Ô­ÏÈµÄÔ¼ÊøÉ¾³ı£¬È»ºóÔÙĞÂ½¨Ô¼ÊøÉèÖÃÄ¬ÈÏÖµ£¬·ñÔò±¨´í¡£
-alter table dbo.Ñ§ÉúĞÅÏ¢ add constraint ×¨Òµ_ default 'ÍøÂç¹¤³Ì' for ×¨Òµ;
-alter table dbo.Ñ§ÉúĞÅÏ¢ add constraint Ïµ²¿_ default 'ĞÅ´´Ñ§Ôº' for Ïµ²¿;
-alter table dbo.¿Î³ÌĞÅÏ¢ add constraint range check(¿ª¿ÎÑ§ÆÚ <=6 and ¿ª¿ÎÑ§ÆÚ >=0);
-alter table dbo.Ñ§Éú³É¼¨ add constraint FK_Ñ§ºÅ foreign key(Ñ§ºÅ) references dbo.Ñ§ÉúĞÅÏ¢(Ñ§ºÅ);
-alter table dbo.Ñ§Éú³É¼¨ add constraint FK_¿Î³ÌºÅ foreign key(¿Î³ÌºÅ) references dbo.¿Î³ÌĞÅÏ¢(¿Î³ÌºÅ);
+ --ç»™è¡¨å­—æ®µæ·»åŠ é»˜è®¤å€¼
+--ç»™æŸä¸ªå­—æ®µè®¾ç½®çº¦æŸå¹¶è®¾ç½®é»˜è®¤å€¼çš„æ—¶å€™ï¼Œéœ€è¦å…ˆå°†åŸå…ˆçš„çº¦æŸåˆ é™¤ï¼Œç„¶åå†æ–°å»ºçº¦æŸè®¾ç½®é»˜è®¤å€¼ï¼Œå¦åˆ™æŠ¥é”™ã€‚
+alter table dbo.å­¦ç”Ÿä¿¡æ¯ add constraint ä¸“ä¸š_ default 'è®¡ç®—æœºç§‘å­¦ä¸æŠ€æœ¯' for ä¸“ä¸š;
+alter table dbo.å­¦ç”Ÿä¿¡æ¯ add constraint ç³»éƒ¨_ default 'è®¡ç®—æœºå­¦é™¢' for ç³»éƒ¨;
+alter table dbo.è¯¾ç¨‹ä¿¡æ¯ add constraint range check(å¼€è¯¾å­¦æœŸ <=6 and å¼€è¯¾å­¦æœŸ >=0);
+alter table dbo.å­¦ç”Ÿæˆç»© add constraint FK_å­¦å· foreign key(å­¦å·) references dbo.å­¦ç”Ÿä¿¡æ¯(å­¦å·);
+alter table dbo.å­¦ç”Ÿæˆç»© add constraint FK_è¯¾ç¨‹å· foreign key(è¯¾ç¨‹å·) references dbo.è¯¾ç¨‹ä¿¡æ¯(è¯¾ç¨‹å·);
 go
