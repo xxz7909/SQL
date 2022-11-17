@@ -9,7 +9,7 @@ USE master;
 --(name = XSCJ_LOG,filename = 'H:\SQL\SXCJ_LOG.ldf',size=50MB,filegrowth=10%);
 
 go
-alter database XSCJK --һ��ʼû�Ķԣ�ִ����һ��֮���иĵ�
+alter database XSCJK --一开始没改对，执行完一次之后有改的
 	modify filegroup UI name = USER1;
 
 --go

@@ -1,6 +1,6 @@
--- Ìí¼ÓdboÏÂµÄuserTest±íµÄuserName×Ö¶Î×¢ÊÍÎª"ÓÃ»§Ãû"
--- execute sp_addextendedproperty 'MS_Description','ÓÃ»§Ãû','user','dbo','table','userTest','column','userName';
-create table Library.dbo.ReaderType( --¶ÁÕßÀàÐÍ±í
+-- æ·»åŠ dboä¸‹çš„userTestè¡¨çš„userNameå­—æ®µæ³¨é‡Šä¸º"ç”¨æˆ·å"
+-- execute sp_addextendedproperty 'MS_Description','ç”¨æˆ·å','user','dbo','table','userTest','column','userName';
+create table Library.dbo.ReaderType( --è¯»è€…ç±»åž‹è¡¨
 	RTypeld	int primary key identity,
 	Rtype	nvarchar(30) not null,
 	Num		tinyint not null check(Num>=0),

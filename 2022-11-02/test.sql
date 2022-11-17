@@ -1,9 +1,9 @@
--- 1.½¨¿â  ¡Ì
--- 2.¸Ä¿â  ¡Ì
--- 3.½¨±í ½ÌÊ¦±í °à¼¶±í ¿Î³Ì±í  ½ÌÊ¦°à¼¶¿Î³Ì±í ¡Ì
--- 4.¸Ä±í
+-- 1.å»ºåº“  âˆš
+-- 2.æ”¹åº“  âˆš
+-- 3.å»ºè¡¨ æ•™å¸ˆè¡¨ ç­çº§è¡¨ è¯¾ç¨‹è¡¨  æ•™å¸ˆç­çº§è¯¾ç¨‹è¡¨ âˆš
+-- 4.æ”¹è¡¨
 
--- 1.½¨¿â 
+-- 1.å»ºåº“ 
 create database CYKA
 on primary
 	(name=TD1,filename='C:\SQL\TD1.mdf',size=8MB,maxsize=300MB,filegrowth=10%),
@@ -13,7 +13,7 @@ log on
 	(name=CYKA_log,filename='C:\SQL\logFile.ldf',size=8MB,maxsize=100MB)
 go
 
--- 2.¸Ä¿â
+-- 2.æ”¹åº“
 alter database CYKA
 modify file
 ( name = TD2,
@@ -22,48 +22,48 @@ maxsize = 50MB,
 filegrowth  = 15%);
 go
 
--- 3.½¨±í ½ÌÊ¦±í °à¼¶±í ¿Î³Ì±í  ½ÌÊ¦°à¼¶¿Î³Ì±í ¡Ì
+-- 3.å»ºè¡¨ æ•™å¸ˆè¡¨ ç­çº§è¡¨ è¯¾ç¨‹è¡¨  æ•™å¸ˆç­çº§è¯¾ç¨‹è¡¨ âˆš
 use CYKA
 go
 
-create table dbo.½ÌÊ¦±í (
-        ½ÌÊ¦±àºÅ nchar(6) primary key,
-        ĞÕÃû    nchar(6) not null,
-        ×¨Òµ    nchar(1),
-        Ö°³Æ    nchar(10) check(Ö°³Æ='¸±½ÌÊÚ' or Ö°³Æ='½ÌÊÚ' or Ö°³Æ='½²Ê¦' or Ö°³Æ='Öú½Ì' ),
-        ²¿ÃÅ    nchar(12)
+create table dbo.æ•™å¸ˆè¡¨ (
+        æ•™å¸ˆç¼–å· nchar(6) primary key,
+        å§“å    nchar(6) not null,
+        ä¸“ä¸š    nchar(1),
+        èŒç§°    nchar(10) check(èŒç§°='å‰¯æ•™æˆ' or èŒç§°='æ•™æˆ' or èŒç§°='è®²å¸ˆ' or èŒç§°='åŠ©æ•™' ),
+        éƒ¨é—¨    nchar(12)
 );
 go
 
-create table dbo.°à¼¶±í(
-	°à¼¶´úÂë nchar(6) primary key,
-	°à¼¶Ãû³Æ nchar(20) not null,
-	ÔºÏµ²¿ÃÅ	nchar(8) default 'ĞÅ´´Ñ§Ôº'
+create table dbo.ç­çº§è¡¨(
+	ç­çº§ä»£ç  nchar(6) primary key,
+	ç­çº§åç§° nchar(20) not null,
+	é™¢ç³»éƒ¨é—¨	nchar(8) default 'ä¿¡åˆ›å­¦é™¢'
 ); 
 go
 
-create table dbo.¿Î³Ì±í (
-	¿Î³Ì´úÂë nchar(6) primary key,
-	¿Î³ÌÃû³Æ nchar(20) not null unique,
-	ÀàĞÍ nchar(8) check(ÀàĞÍ = '±ØĞŞ' or ÀàĞÍ = 'Ñ¡ĞŞ')
+create table dbo.è¯¾ç¨‹è¡¨ (
+	è¯¾ç¨‹ä»£ç  nchar(6) primary key,
+	è¯¾ç¨‹åç§° nchar(20) not null unique,
+	ç±»å‹ nchar(8) check(ç±»å‹ = 'å¿…ä¿®' or ç±»å‹ = 'é€‰ä¿®')
 );
 go
 
-create table dbo.½ÌÊ¦°à¼¶¿Î³Ì±í (
-	½ÌÊ¦±àºÅ nchar(6)
-		foreign key(½ÌÊ¦±àºÅ) references dbo.½ÌÊ¦±í(½ÌÊ¦±àºÅ),
-	°à¼¶´úÂë nchar(6)
-		foreign key(°à¼¶´úÂë) references dbo.°à¼¶±í(°à¼¶´úÂë),
-	¿Î³Ì´úÂë nchar(6)
-		foreign key(¿Î³Ì´úÂë) references dbo.¿Î³Ì±í(¿Î³Ì´úÂë),
+create table dbo.æ•™å¸ˆç­çº§è¯¾ç¨‹è¡¨ (
+	æ•™å¸ˆç¼–å· nchar(6)
+		foreign key(æ•™å¸ˆç¼–å·) references dbo.æ•™å¸ˆè¡¨(æ•™å¸ˆç¼–å·),
+	ç­çº§ä»£ç  nchar(6)
+		foreign key(ç­çº§ä»£ç ) references dbo.ç­çº§è¡¨(ç­çº§ä»£ç ),
+	è¯¾ç¨‹ä»£ç  nchar(6)
+		foreign key(è¯¾ç¨‹ä»£ç ) references dbo.è¯¾ç¨‹è¡¨(è¯¾ç¨‹ä»£ç ),
 );	
 use CYKA
-alter table dbo.½ÌÊ¦°à¼¶¿Î³Ì±í add ¹Ò¿ÆÈËÊı int not null
-	check(¹Ò¿ÆÈËÊı>=1 and ¹Ò¿ÆÈËÊı<=40);
+alter table dbo.æ•™å¸ˆç­çº§è¯¾ç¨‹è¡¨ add æŒ‚ç§‘äººæ•° int not null
+	check(æŒ‚ç§‘äººæ•°>=1 and æŒ‚ç§‘äººæ•°<=40);
 
 use CYKA
-alter table dbo.¿Î³Ì±í
-add constraint Ñ§·Ö_range check(Ñ§·Ö>=1 and Ñ§·Ö<=6);
+alter table dbo.è¯¾ç¨‹è¡¨
+add constraint å­¦åˆ†_range check(å­¦åˆ†>=1 and å­¦åˆ†<=6);
 go
 
 

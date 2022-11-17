@@ -2,7 +2,7 @@ use Library
 go
 
 -- H:\SQL\2022-10-17
--- ´´½¨Êı¾İ¿â
+-- åˆ›å»ºæ•°æ®åº“
 create database Library
 on primary
 (name = Library,filename='H:\SQL\2022-10-17\Library.mdf')
@@ -10,10 +10,10 @@ log on
 (name=Library_log,filename='H:\SQL\2022-10-17\Library.ldf');
 go
 
--- Ìí¼ÓdboÏÂµÄuserTest±íµÄuserName×Ö¶Î×¢ÊÍÎª"ÓÃ»§Ãû"
--- execute sp_addextendedproperty 'MS_Description','ÓÃ»§Ãû','user','dbo','table','userTest','column','userName';
+-- æ·»åŠ dboä¸‹çš„userTestè¡¨çš„userNameå­—æ®µæ³¨é‡Šä¸º"ç”¨æˆ·å"
+-- execute sp_addextendedproperty 'MS_Description','ç”¨æˆ·å','user','dbo','table','userTest','column','userName';
 
-create table Library.dbo.ReaderType( --¶ÁÕßÀàĞÍ±í
+create table Library.dbo.ReaderType( --è¯»è€…ç±»å‹è¡¨
 	RTypeld	int primary key identity,
 	Rtype	nvarchar(30) not null,
 	Num		tinyint not null check(Num>=0),
@@ -22,17 +22,17 @@ go
 
 
 
-create table Library.dbo.Readers( --¶ÁÕßĞÅÏ¢±í
+create table Library.dbo.Readers( --è¯»è€…ä¿¡æ¯è¡¨
 	RID		int				primary key identity,
 	RName	nvarchar(50)	not null,
-	Rgender	char(2)			not null check(Rgender='ÄĞ' or Rgender='Å®') default 'ÄĞ',
+	Rgender	char(2)			not null check(Rgender='ç”·' or Rgender='å¥³') default 'ç”·',
 	Rtypeld	int				not null foreign key references ReaderType(Rtypeld),
-	RAddress nvarchar(50)	default '²»Ïê',
+	RAddress nvarchar(50)	default 'ä¸è¯¦',
 	Email	nvarchar(50)	check(email like '%@%')
 )
 go
 
---Í»È»·¢ÏÖ×Ö¶ÎÃûÉèÖÃ´íÁË
+--çªç„¶å‘ç°å­—æ®µåè®¾ç½®é”™äº†
 execute sp_rename 'ReaderType.RTypeld','RTypeId','column';
 execute sp_rename 'Readers.Rtypeld','RTypeId','column';
 go
@@ -75,30 +75,30 @@ create table Penalty(
 	foreign key (RID) references Readers(RID),
 	foreign key (BID) references Books(BID),
 	PDate datetime not null default getdate(),
-	PType int not null check(1='¹ıÆÚ' and 2='Ëğ»µ' and 3='ÒÅÊ§' and PType>=1 and PType <=3),
+	PType int not null check(1='è¿‡æœŸ' and 2='æŸå' and 3='é—å¤±' and PType>=1 and PType <=3),
 	Amount money not null check(Amount >0)
 )
 
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕß±àºÅ',N'user',N'dbo',N'table',N'Readers',N'column', N'RID';
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕßĞÕÃû',N'user',N'dbo',N'table',N'Readers',N'column', N'RName';
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕßĞÔ±ğ.',N'user',N'dbo',N'table',N'Readers',N'column', N'Rgender';
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕßÀàĞÍ±àºÅ',N'user',N'dbo',N'table',N'Readers',N'column', N'RtypeId';
-exec sp_addextendedproperty N'±¸×¢1',N'¼ÒÍ¥µØÖ·',N'user',N'dbo',N'table',N'Readers',N'column', N'RAddress';
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕßÀàĞÍ±àºÅ',N'user',N'dbo',N'table',N'ReaderType',N'column', N'RTypeId';
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕßÀàĞÍÃû³Æ',N'user',N'dbo',N'table',N'ReaderType',N'column', N'Rtype';
-exec sp_addextendedproperty N'±¸×¢1',N'Í¼Êé±àºÅ',N'user',N'dbo',N'table',N'Books',N'column', N'BID';
-exec sp_addextendedproperty N'±¸×¢1',N'Í¼ÊéÃû³Æ',N'user',N'dbo',N'table',N'Books',N'column', N'Title';
-exec sp_addextendedproperty N'±¸×¢1',N'Í¼Êé×÷Õß',N'user',N'dbo',N'table',N'Books',N'column', N'Author';
-exec sp_addextendedproperty N'±¸×¢1',N'³ö°æÉç±àºÅ',N'user',N'dbo',N'table',N'Books',N'column', N'PubId';
-exec sp_addextendedproperty N'±¸×¢1',N'³ö°æÊ±¼ä',N'user',N'dbo',N'table',N'Books',N'column', N'PubDate ';
-exec sp_addextendedproperty N'±¸×¢1',N'ISBN',N'user',N'dbo',N'table',N'Books',N'column', N'ISBN';
-exec sp_addextendedproperty N'±¸×¢1',N'µ¥¼Û',N'user',N'dbo',N'table',N'Books',N'column', N'Price';
-exec sp_addextendedproperty N'±¸×¢1',N'Í¼ÊéÖÖÀà±àºÅ',N'user',N'dbo',N'table',N'BookCategory',N'column', N'categoryid';
-exec sp_addextendedproperty N'±¸×¢1',N'³ö°æÉç±àºÅ',N'user',N'dbo',N'table',N'Publishers',N'column', N'PID';
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕß±àºÅ',N'user',N'dbo',N'table',N'Borrow',N'column', N'RID';
-exec sp_addextendedproperty N'±¸×¢1',N'Í¼Êé±àºÅ',N'user',N'dbo',N'table',N'Borrow',N'column', N'BID';
-exec sp_addextendedproperty N'±¸×¢1',N'½èÔÄÈÕÆÚ',N'user',N'dbo',N'table',N'Borrow',N'column', N'LendDate';
-exec sp_addextendedproperty N'±¸×¢1',N'¶ÁÕß±àºÅ',N'user',N'dbo',N'table',N'Penalty',N'column', N'RID';
-exec sp_addextendedproperty N'±¸×¢1',N'Í¼Êé±àºÅ',N'user',N'dbo',N'table',N'Penalty',N'column', N'BID';
-exec sp_addextendedproperty N'±¸×¢1',N'·£¿îÈÕÆÚ',N'user',N'dbo',N'table',N'Penalty',N'column', N'PDate';
-exec sp_addextendedproperty N'±¸×¢1',N'·£¿îÀàĞÍ',N'user',N'dbo',N'table',N'Penalty',N'column', N'PType';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…ç¼–å·',N'user',N'dbo',N'table',N'Readers',N'column', N'RID';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…å§“å',N'user',N'dbo',N'table',N'Readers',N'column', N'RName';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…æ€§åˆ«.',N'user',N'dbo',N'table',N'Readers',N'column', N'Rgender';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…ç±»å‹ç¼–å·',N'user',N'dbo',N'table',N'Readers',N'column', N'RtypeId';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å®¶åº­åœ°å€',N'user',N'dbo',N'table',N'Readers',N'column', N'RAddress';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…ç±»å‹ç¼–å·',N'user',N'dbo',N'table',N'ReaderType',N'column', N'RTypeId';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…ç±»å‹åç§°',N'user',N'dbo',N'table',N'ReaderType',N'column', N'Rtype';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å›¾ä¹¦ç¼–å·',N'user',N'dbo',N'table',N'Books',N'column', N'BID';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å›¾ä¹¦åç§°',N'user',N'dbo',N'table',N'Books',N'column', N'Title';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å›¾ä¹¦ä½œè€…',N'user',N'dbo',N'table',N'Books',N'column', N'Author';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å‡ºç‰ˆç¤¾ç¼–å·',N'user',N'dbo',N'table',N'Books',N'column', N'PubId';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å‡ºç‰ˆæ—¶é—´',N'user',N'dbo',N'table',N'Books',N'column', N'PubDate ';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'ISBN',N'user',N'dbo',N'table',N'Books',N'column', N'ISBN';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å•ä»·',N'user',N'dbo',N'table',N'Books',N'column', N'Price';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å›¾ä¹¦ç§ç±»ç¼–å·',N'user',N'dbo',N'table',N'BookCategory',N'column', N'categoryid';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å‡ºç‰ˆç¤¾ç¼–å·',N'user',N'dbo',N'table',N'Publishers',N'column', N'PID';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…ç¼–å·',N'user',N'dbo',N'table',N'Borrow',N'column', N'RID';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å›¾ä¹¦ç¼–å·',N'user',N'dbo',N'table',N'Borrow',N'column', N'BID';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å€Ÿé˜…æ—¥æœŸ',N'user',N'dbo',N'table',N'Borrow',N'column', N'LendDate';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'è¯»è€…ç¼–å·',N'user',N'dbo',N'table',N'Penalty',N'column', N'RID';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'å›¾ä¹¦ç¼–å·',N'user',N'dbo',N'table',N'Penalty',N'column', N'BID';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'ç½šæ¬¾æ—¥æœŸ',N'user',N'dbo',N'table',N'Penalty',N'column', N'PDate';
+exec sp_addextendedproperty N'å¤‡æ³¨1',N'ç½šæ¬¾ç±»å‹',N'user',N'dbo',N'table',N'Penalty',N'column', N'PType';

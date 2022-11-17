@@ -2,12 +2,12 @@ use master
 go
 
 create table XSCJ.DBO.KCB (
-	¿Î³ÌºÅ char(4) not null primary key,
-	¿Î³ÌÃû varchar(40) not null,
-	ÊÚ¿Î½ÌÊ¦	varchar(10) ,
-	¿ªÉèÑ§ÆÚ tinyint not null default 1,
-	Ñ§Ê± tinyint	not null,
-	Ñ§·Ö tinyint,
-	check(¿ªÉèÑ§ÆÚ>=1 and ¿ªÉèÑ§ÆÚ<=6)
+	è¯¾ç¨‹å· char(4) not null primary key,
+	è¯¾ç¨‹å varchar(40) not null,
+	æˆè¯¾æ•™å¸ˆ	varchar(10) ,
+	å¼€è®¾å­¦æœŸ tinyint not null default 1,
+	å­¦æ—¶ tinyint	not null,
+	å­¦åˆ† tinyint,
+	check(å¼€è®¾å­¦æœŸ>=1 and å¼€è®¾å­¦æœŸ<=6)
 )
 go

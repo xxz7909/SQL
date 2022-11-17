@@ -69,18 +69,39 @@ CREATE TABLE [dbo].[Users](
    [Grade] [nvarchar](10) NULL,
    [Description] [nvarchar](50) NULL,
  CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED([UserName] ASC))
+
 GO
 
-INSERT INTO [StuDB].[dbo].[部门信息] VALUES('01' , '电子信息' , '教学系部')
-INSERT INTO [StuDB].[dbo].[部门信息] VALUES('02' , '计算机科学' , '教学系部')
-INSERT INTO [StuDB].[dbo].[部门信息] VALUES('03' , '经济管理' , '教学系部')
-INSERT INTO [StuDB].[dbo].[部门信息] VALUES('04' , '通信工程' , '教学系部')
-INSERT INTO [StuDB].[dbo].[部门信息] VALUES('05' , '人事处' , '管理部门')
-INSERT INTO [StuDB].[dbo].[部门信息] VALUES('06' , '办公室' , '管理部门')
+INSERT INTO [StuDB].[dbo].[部门信息]
+   VALUES('01' , '电子信息' , '教学系部')
 
-INSERT INTO [StuDB].[dbo].[Users] VALUES('admini' , '140902' , '系统管理员', NULL)
-INSERT INTO [StuDB].[dbo].[Users] VALUES('Andy' , '130826' , '普通管理员', NULL)
-INSERT INTO [StuDB].[dbo].[Users] VALUES('Serkida' , '140802' , '普通管理员', NULL)
+INSERT INTO [StuDB].[dbo].[部门信息]
+   VALUES('02' , '计算机科学' , '教学系部')
+
+INSERT INTO [StuDB].[dbo].[部门信息]
+   VALUES('03' , '经济管理' , '教学系部')
+
+INSERT INTO [StuDB].[dbo].[部门信息]
+   VALUES('04' , '通信工程' , '教学系部')
+
+INSERT INTO [StuDB].[dbo].[部门信息]
+   VALUES('05' , '人事处' , '管理部门')
+
+INSERT INTO [StuDB].[dbo].[部门信息]
+   VALUES('06' , '办公室' , '管理部门')
+
+GO
+
+INSERT INTO [StuDB].[dbo].[Users]
+   VALUES('admini' , '140902' , '系统管理员', NULL)
+
+INSERT INTO [StuDB].[dbo].[Users]
+   VALUES('Andy' , '130826' , '普通管理员', NULL)
+
+INSERT INTO [StuDB].[dbo].[Users]
+   VALUES('Serkida' , '140802' , '普通管理员', NULL)
+
+GO
 
 INSERT INTO [StuDB].[dbo].[教师信息]
    VALUES('01101', '王明松', '1', '教授', '1966-06-08', '01', '13834562145', 'shjk@yahoo.com', '123456.78')
@@ -122,72 +143,213 @@ INSERT INTO [StuDB].[dbo].[教师信息]
    VALUES('06102', '唐慧君', '0', '助教', '1989-08-30', '06', '15513883355', NULL, '99612.10')
 INSERT INTO [StuDB].[dbo].[教师信息]
    VALUES('06103', '杨圣全', '1', '讲师', '1995-10-31', '06', '15581822229', '15581822229@qq.com', '147126.18')
+INSERT INTO [StuDB].[dbo].[教师信息]
+   VALUES('06104', '周小军', '1', '讲师', '1982-11-15', '06', '13034784565', NULL, '0')
 
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('101', '大学英语', '黄绍红', 1, 86, 5)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('102', '高等数学', '王明松', 1, 68, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('103', '计算机基础', '杨圣全', 1, 86, 5)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('104', '美工基础', '唐红光', 1, 80, 5)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('201', 'C语言程序设计', '唐慧君', 2, 64, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('202', 'Java语言程序', '王明松', 2, 68, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('203', 'PASCAL语言', '刘桂芳', 2, 56, 3)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('204', 'VC++', '王志岩', 2, 64, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('205', '专业英语', '周静娈', 3, 32, 2)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('206', '数据结构', '李春林', 3, 68, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('207', '网页设计', '王明松', 3, 64, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('208', '计算机组成', '周密', 3, 68, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('209', '离散数学', '李四光', 3, 64, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('301', '操作系统', '刘庆云', 4, 68, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('302', '计算机网络', '杨婉茜', 4, 64, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('303', '面向对象程序设计', '李春林', 4, 48, 3)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('304', '软件文档的编写', '黄寿孟', 4, 64, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('305', '数据处理', '王建', 4, 56, 3)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('306', '数据库原理', '周国军', 5, 68, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('307', '数据库应用技术', '李华伟', 5, 64, 4)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('308', '图像处理', '王涌', 5, 32, 2)
-INSERT INTO [StuDB].[dbo].[课程信息] VALUES('309', '信息系统', '刘庆云', 5, 86, 5)
 
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12010105', '208', 92)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12010105', '301', 98)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12010108', '302', 84)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12010108', '306', 48)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12010109', '102', 85)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12010109', '306', 92)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12010109', '309', 88)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020109', '102', 90)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020109', '309', 80)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020301', '208', 59)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020301', '301', 75)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020306', '201', 67)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020308', '101', 86)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020308', '103', 45)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020308', '206', 80)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12020308', '209', 65)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12040103', '208', 61)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12040103', '301', 53)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12040108', '101', 60)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12040108', '102', 90)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12040108', '103', 90)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('12040108', '202', 60)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020202', '201', 96)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020202', '308', 80)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020204', '206', 50)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020204', '208', 58)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020204', '209', 72)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020204', '301', 80)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020204', '302', 57)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020204', '306', 60)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13020306', '201', 58)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13030101', '206', 87)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13030101', '207', 78)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13030101', '307', 85)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13030103', '205', 90)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13030103', '307', 89)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13040101', '204', 88)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13040101', '206', 76)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13040104', '101', 67)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13040104', '102', 70)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13040104', '103', 85)
-INSERT INTO [StuDB].[dbo].[学生成绩] VALUES('13040104', '202', 57)
+GO
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('101', '大学英语', '黄绍红', 1, 86, 5)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('102', '高等数学', '王明松', 1, 68, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('103', '计算机基础', '杨圣全', 1, 86, 5)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('104', '美工基础', '唐红光', 1, 80, 5)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('201', 'C语言程序设计', '唐慧君', 2, 64, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('202', 'Java语言程序', '王明松', 2, 68, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('203', 'PASCAL语言', '刘桂芳', 2, 56, 3)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('204', 'VC++', '王志岩', 2, 64, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('205', '专业英语', '周静娈', 3, 32, 2)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('206', '数据结构', '李春林', 3, 68, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('207', '网页设计', '王明松', 3, 64, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('208', '计算机组成', '周密', 3, 68, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('209', '离散数学', '李四光', 3, 64, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('301', '操作系统', '刘庆云', 4, 68, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('302', '计算机网络', '杨婉茜', 4, 64, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('303', '面向对象程序设计', '李春林', 4, 48, 3)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('304', '软件文档的编写', '黄寿孟', 4, 64, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('305', '数据处理', '王建', 4, 56, 3)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('306', '数据库原理', '周国军', 5, 68, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('307', '数据库应用技术', '李华伟', 5, 64, 4)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('308', '图像处理', '王涌', 5, 32, 2)
+
+INSERT INTO [StuDB].[dbo].[课程信息]
+   VALUES('309', '信息系统', '刘庆云', 5, 86, 5)
+
+GO
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('11010105', '205', 86)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('11020207', '409', 88)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12010105', '208', 92)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12010105', '301', 98)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12010108', '302', 84)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12010108', '306', 48)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12010109', '102', 85)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12010109', '306', 92)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12010109', '309', 88)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020109', '102', 90)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020109', '309', 80)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020301', '208', 59)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020301', '301', 75)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020306', '201', 67)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020308', '101', 86)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020308', '103', 45)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020308', '206', 80)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12020308', '209', 65)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12040103', '208', 61)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12040103', '301', 53)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12040108', '101', 60)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12040108', '102', 90)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12040108', '103', 90)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('12040108', '202', 60)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020202', '201', 96)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020202', '308', 80)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020204', '206', 50)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020204', '208', 58)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020204', '209', 72)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020204', '301', 80)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020204', '302', 57)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020204', '306', 60)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13020306', '201', 58)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13030101', '206', 87)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13030101', '207', 78)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13030101', '307', 85)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13030103', '205', 90)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13030103', '307', 89)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13040101', '204', 88)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13040101', '206', 76)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13040104', '101', 67)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13040104', '102', 70)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13040104', '103', 85)
+
+INSERT INTO [StuDB].[dbo].[学生成绩]
+   VALUES('13040104', '202', 57)
+
+GO
 
 INSERT INTO [StuDB].[dbo].[学生信息]
    VALUES('电子信息', '电信1201', '电子信息', '12010101', '杨勇', '男', '1996-12-26', '山西阳泉市', 1, NULL)

@@ -1,5 +1,5 @@
  --H:\SQL\2022-10-17
- --´´½¨Êı¾İ¿â
+ --åˆ›å»ºæ•°æ®åº“
 create database Library
 on primary
 (name = Library,filename='H:\SQL\2022-10-17\Library.mdf')

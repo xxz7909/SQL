@@ -1,4 +1,4 @@
--- ¸ø¶ÁÕßÀàĞÍ±íÌí¼Ó×Ö¶Î±¸×¢
-execute sp_addextendedproperty N'MS_Description',N'¶ÁÕßÀàĞÍ±àºÅ',N'user',N'dbo',N'table',N'ReaderType',N'column',N'RTypeld';
-execute sp_addextendedproperty N'MS_Description',N'¶ÁÕßÀàĞÍÃû³Æ',N'user',N'dbo',N'table',N'ReaderType',N'column',N'RType';
-execute sp_addextendedproperty N'MS_Description',N'¿É½èÊıÁ¿',N'user',N'dbo',N'table',N'ReaderType',N'column',N'Num';
+-- ç»™è¯»è€…ç±»å‹è¡¨æ·»åŠ å­—æ®µå¤‡æ³¨
+execute sp_addextendedproperty N'MS_Description',N'è¯»è€…ç±»å‹ç¼–å·',N'user',N'dbo',N'table',N'ReaderType',N'column',N'RTypeld';
+execute sp_addextendedproperty N'MS_Description',N'è¯»è€…ç±»å‹åç§°',N'user',N'dbo',N'table',N'ReaderType',N'column',N'RType';
+execute sp_addextendedproperty N'MS_Description',N'å¯å€Ÿæ•°é‡',N'user',N'dbo',N'table',N'ReaderType',N'column',N'Num';
