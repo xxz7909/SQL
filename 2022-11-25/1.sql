@@ -48,7 +48,7 @@ select * from dbo.学生信息 as stu_info
     where not exists (
         select  学号 from dbo.学生成绩 as stu_scores
         where stu_info.学号 = stu_scores.学号
-    );
+    ); --加not 查出来24 不加not查出来16 也就是说sql执行完 学生成绩里出来两个学号不在学生信息里
 -- 奇怪 学生信息40人 学生成绩18人 结果查出来24个人没考
 select distinct 学号 from dbo.学生成绩-- 但是这些人确实也没有考试成绩啊
     where 学号 not in (
