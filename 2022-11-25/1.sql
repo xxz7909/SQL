@@ -63,6 +63,7 @@ select count(学号) from dbo.学生信息
 --select 学号 from dbo.学生信息
    
 select count(distinct 学号) from dbo.学生成绩 
+select distinct 学号 from dbo.学生成绩
 
 -- 任务二 使用UNION进行联合查询
 -- 2.题跟数据不匹配,做出来就是这样子的
