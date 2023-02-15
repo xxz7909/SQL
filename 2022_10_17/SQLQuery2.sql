@@ -26,9 +26,9 @@ create table Library.dbo.Readers( --读者信息表
 	RID		int				primary key identity,
 	RName	nvarchar(50)	not null,
 	Rgender	char(2)			not null check(Rgender='男' or Rgender='女') default '男',
-	Rtypeld	int				not null foreign key references ReaderType(Rtypeld),
+	RtypeId	int				not null foreign key references ReaderType(Rtypeld),
 	RAddress nvarchar(50)	default '不详',
-	Email	nvarchar(50)	check(email like '%@%')
+	Email	nvarchar(50)	check(email like '%@%') -- 其实这个还不完善，还得再限定范围，字母和数字啥的
 )
 go
 
@@ -43,7 +43,7 @@ create table Library.dbo.Publishers(
 )
 
 create table BookCategory(
-	categoryid int primary key identity,
+	categoryid int primary key identity, -- identity 默认identity(1,1) 第一个是seed 第二个是increment
 	Name nvarchar(20) not null
 )
 

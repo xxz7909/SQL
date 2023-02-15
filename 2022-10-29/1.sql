@@ -12,7 +12,7 @@ alter table dbo.教师信息 alter column 性别 bit;
 alter table dbo.教师信息 alter column 姓名 nchar(5) not null;
 ---- 设置字段为主键
 alter table dbo.课程信息 add constraint 课程号 primary key(课程号);、
-alter table dbo.学生信息 add  constraint 学号 primary key(学号);
+ table dbo.学生信息 add  constraint 学号 primary key(学号);
 alter table dbo.学生成绩 add constraint 学号课程号 primary key(学号,课程号);
 
 

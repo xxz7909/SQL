@@ -63,7 +63,7 @@ alter table dbo.教师班级课程表 add 挂科人数 int not null
 
 use CYKA
 alter table dbo.课程表
-add constraint 学分_range check(学分>=1 and 学分<=6);
+	add constraint 学分_range check(学分>=1 and 学分<=6);
 go
 
 

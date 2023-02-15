@@ -76,7 +76,8 @@ select * from dbo.教师信息
 -- 11.显示学生成绩平均分大于80分的课程的记录。(显示列：课程号，平均分)
 select 课程号,AVG(成绩) as '平均分'
 	from dbo.学生成绩
-	group by 课程号;
+	group by 课程号
+	having AVG(成绩) > 80;
 
 --12.请查询平均成绩大于80分的有哪些学生？(显示列：学号，平均成绩)
 use StuDB

@@ -7,8 +7,8 @@ filegroup UI
 (name = XSCJ_2,filename = 'H:\SQL\SXCJ_1.ndf',size=20MB,filegrowth=64MB)
 log on
 (name = XSCJ_LOG,filename = 'H:\SQL\SXCJ_LOG.ldf',size=50MB,filegrowth=10%);
-
 go
+
 alter database XSCJ
 	modify filegroup UI USER1;
 
